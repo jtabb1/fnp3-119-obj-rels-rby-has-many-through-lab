@@ -1,3 +1,6 @@
+# Incorporated shortcut notation from the official solution
+#  to already working version of this original solution
+
 class Genre
 
   attr_accessor :name
@@ -17,7 +20,14 @@ class Genre
     Song.all.select{|et| et.genre == self}
   end
 
+  # original method worked:
   def artists
     songs.map{|et| et.artist}.uniq
+  end
+
+  # shortcut notation from the official solution
+  # also works:
+  def artists
+    songs.map(&:artist).uniq
   end
 end

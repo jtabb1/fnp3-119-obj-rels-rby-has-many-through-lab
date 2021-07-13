@@ -1,3 +1,6 @@
+# Incorporated shortcut notation from the official solution
+#  to already working version of this original solution
+
 class Doctor
 
   attr_accessor :name
@@ -23,7 +26,14 @@ class Doctor
     Appointment.all.select{|et| et.doctor == self}
   end
 
-  def patients
+  # original method worked:
+  def patients_0
     appointments.map{|et| et.patient}.uniq
+  end
+
+  # shortcut notation from the official solution
+  # also works:
+  def patients
+    appointments.map(&:patient).uniq
   end
 end
